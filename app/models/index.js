@@ -1,3 +1,4 @@
+const { port } = require("pg/lib/defaults.js");
 const config = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");
@@ -7,8 +8,9 @@ const sequelize = new Sequelize(
   config.PASSWORD,
   {
     host: config.HOST,
+    port : config.port,
     dialect: config.dialect,
-    operatorsAliases: false,
+    operatorsAliases: 0,
 
     pool: {
       max: config.pool.max,
